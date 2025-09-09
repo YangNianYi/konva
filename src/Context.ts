@@ -350,7 +350,7 @@ export class Context {
     endAngle: number,
     counterClockwise?: boolean
   ) {
-    this._context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+    this._context.arc(x, y, radius, startAngle, endAngle, !!counterClockwise);
   }
   /**
    * arcTo function.
@@ -587,6 +587,9 @@ export class Context {
    * @name Konva.Context#getImageData
    */
   getImageData(sx: number, sy: number, sw: number, sh: number) {
+    if (sx > this._context.canvas.width || sy > this._context.canvas.height) {
+      return {data: new Uint8ClampedArray([0,0,0,0])}
+    }
     return this._context.getImageData(sx, sy, sw, sh);
   }
   /**
@@ -611,7 +614,7 @@ export class Context {
    * @name Konva.Context#rect
    */
   rect(x: number, y: number, width: number, height: number) {
-    this._context.rect(x, y, width, height);
+    this._context.rect(x, y, width || 0, height || 0);
   }
   /**
    * roundRect function.

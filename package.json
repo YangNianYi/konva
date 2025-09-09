@@ -48,7 +48,7 @@
     "test:node:canvas": "mocha -r tsx -r ./test/node-canvas-global-setup.mjs --extension ts --recursive './test/unit/' --exit",
     "test:node:skia": "mocha -r tsx -r ./test/node-skia-global-setup.mjs --extension ts --recursive './test/unit/' --exit",
     "test:node:napi": "mocha -r tsx -r ./test/node-napi-global-setup.mjs --extension ts --recursive './test/unit/' --exit",
-    "test:node": "npm run test:node:canvas && npm run test:node:skia && test:node:napi",
+    "test:node": "npm run test:node:canvas && npm run test:node:skia && npm run test:node:napi",
     "tsc": "tsc --removeComments",
     "rollup": "rollup -c",
     "clean": "rm -rf ./lib && rm -rf ./types && rm -rf ./cmj && rm -rf ./test-build",
